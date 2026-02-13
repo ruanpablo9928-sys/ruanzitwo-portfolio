@@ -1,9 +1,15 @@
 @import "tailwindcss";
 
 @theme {
+  /* Deep, rich dark theme */
   --color-brand-dark: #020617;
+  /* Slate-950 base */
   --color-brand-blue: #1e3a8a;
+  /* Blue-900 */
   --color-brand-accent: #3b82f6;
+  /* Blue-500 */
+  --color-brand-surface: #0f172a;
+  /* Slate-900 for cards/surfaces */
   --font-sans: 'Inter', sans-serif;
 
   @keyframes shimmer {
@@ -20,17 +26,47 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    @apply bg-brand-dark text-white font-sans antialiased overflow-x-hidden;
+    @apply bg-brand-dark text-slate-100 font-sans antialiased overflow-x-hidden transition-opacity duration-300 ease-in-out;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+    /* Modern tight tracking */
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold tracking-tight text-white;
+  }
+
+  h1 {
+    @apply text-4xl md:text-6xl lg:text-7xl leading-tight;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl mb-8;
+  }
+
+  p {
+    @apply text-slate-300;
   }
 }
 
 @utility animate-shimmer {
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
   background-size: 200% 100%;
   animation: shimmer 2s infinite linear;
+}
+
+@utility glass-panel {
+  @apply bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl;
 }
 
 /* Custom Scrollbar */
@@ -39,14 +75,14 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #020617;
+  background: var(--color-brand-dark);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e3a8a;
+  background: var(--color-brand-blue);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3b82f6;
+  background: var(--color-brand-accent);
 }

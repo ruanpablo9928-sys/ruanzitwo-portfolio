@@ -1,5 +1,6 @@
+import RevealOnScroll from './RevealOnScroll';
+import VideoCard from './VideoCard';
 import { motion } from 'framer-motion';
-import { Eye } from 'lucide-react';
 
 const projects = [
     {
@@ -48,39 +49,25 @@ const Portfolio = () => {
     return (
         <section className="py-20 bg-brand-dark text-white" id="portfolio">
             <div className="container mx-auto px-4">
-                <motion.h2
-                    initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6 }}
-                    className="text-4xl font-bold mb-12 text-center"
-                >
-                    Trabalhos Selecionados
-                </motion.h2>
+                <RevealOnScroll>
+                    <h2 className="text-4xl font-bold mb-12 text-center">
+                        Trabalhos Selecionados
+                    </h2>
+                </RevealOnScroll>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
                     {projects.map((project, index) => (
-                        <motion.div
-                            key={project.id}
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.2, duration: 0.6 }}
-                            className="relative aspect-[9/16] bg-gray-900 rounded-lg overflow-hidden shadow-2xl border border-white/10 group"
-                        >
-                            <iframe
-                                className="w-full h-full object-cover"
-                                src={project.src}
-                                title={project.title}
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowFullScreen
-                            ></iframe>
-                        </motion.div>
+                        <RevealOnScroll key={project.id} delay={index * 0.1}>
+                            <VideoCard project={project} />
+                        </RevealOnScroll>
                     ))}
                 </div>
 
-                <div className="text-center mt-12 text-blue-200/50 text-sm">
-                    <p>Role para ver mais</p>
-                </div>
+                <RevealOnScroll delay={0.4}>
+                    <div className="text-center mt-12 text-blue-200/50 text-sm">
+                        <p>Role para ver mais</p>
+                    </div>
+                </RevealOnScroll>
             </div>
         </section>
     );
