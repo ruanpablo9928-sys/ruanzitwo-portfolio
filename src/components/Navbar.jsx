@@ -25,7 +25,7 @@ const Navbar = () => {
         { name: 'Portfolio', href: '#portfolio' },
         { name: 'Ferramentas', href: '#tools' },
         { name: 'PROMOÇÃO', href: '#pricing', isSpecial: true },
-        { name: 'Em desenvolvimento', href: '/feedback', isNewTab: true },
+        { name: 'Em desenvolvimento', href: '#/feedback', isNewTab: true },
         { name: 'Contato', href: '#contact' },
     ];
 
@@ -88,8 +88,8 @@ const Navbar = () => {
                                     target={link.isNewTab ? "_blank" : "_self"}
                                     rel={link.isNewTab ? "noopener noreferrer" : ""}
                                     className={`text-xl transition-colors ${link.isSpecial
-                                            ? "text-brand-accent font-bold"
-                                            : "text-white/80 hover:text-brand-accent"
+                                        ? "text-brand-accent font-bold"
+                                        : "text-white/80 hover:text-brand-accent"
                                         } ${link.isNewTab ? "italic text-brand-accent/80" : ""}`}
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
