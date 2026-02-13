@@ -136,8 +136,8 @@ Já criei o arquivo de correção (`vercel.json`). Para aplicar, basta atualizar
 
 ```bash
 git add .
-git commit -m "Correção erro 404 (HashRouter)"
+git commit -m "Removendo vercel.json e corrigindo link"
 git push
 ```
 
-**Nota:** Agora o link vai ficar assim: `seusite.vercel.app/#/feedback`. O `#` é normal e garante que funcione!
+**Explicação:** Apaguei o arquivo de configuração manual (`vercel.json`) que estava atrapalhando e forcei o link a ser absoluto (`/#/feedback`). Agora deve resolver de vez!

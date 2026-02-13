@@ -25,7 +25,7 @@ const Navbar = () => {
         { name: 'Portfolio', href: '#portfolio' },
         { name: 'Ferramentas', href: '#tools' },
         { name: 'PROMOÇÃO', href: '#pricing', isSpecial: true },
-        { name: 'Em desenvolvimento', href: '#/feedback', isNewTab: true },
+        { name: 'Em desenvolvimento', href: '/#/feedback', isNewTab: true },
         { name: 'Contato', href: '#contact' },
     ];
 
